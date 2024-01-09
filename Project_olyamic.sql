@@ -1,8 +1,6 @@
+/* Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types */
+
 --1 which team has won the maximum gold medals over the years.
-
-select name from sys.tables
-
-
 
 select top 1 team, count(distinct event)total_gold_medal
 from athlete_events ae inner join athletes a on 
@@ -32,14 +30,6 @@ select * from cte1;
 --3 which player has won maximum gold medals  amongst the players 
 --which have won only gold medal (never won silver or bronze) over the years
 
-
-
---select name, count(medal) as total_gold 
---from athlete_events ae inner join athletes a on ae.athlete_id=a.id
---where name not in(select distinct name from athlete_events ae inner join athletes a on ae.athlete_id=a.id where medal in ('Silver','Bronze') and medal='Gold')
---group by name 
---order by total_gold desc;
-
 with cte as (
 select name, medal 
 from athlete_events ae inner join athletes a on ae.athlete_id=a.id)
@@ -48,8 +38,6 @@ where name not in(select distinct name from cte where medal in ('Silver','Bronze
 and medal='Gold'
 group by name 
 order by gold_medal_count desc;
-
-
 
 
 --4 in each year which player has won maximum gold medal . Write a query to print year,player name 
@@ -67,8 +55,7 @@ select year,STRING_AGG(name, ',')as Player_name,max(gold_medal_count) as No_gold
 from cte ae inner join athletes a on ae.athlete_id = a.id
 where rn=1
 group by year
-order by No_gold_medal,year,Player_name
-;
+order by No_gold_medal,year,Player_name;
 
 --5 in which event and year India has won its first gold medal,first silver medal and first bronze medal
 --print 3 columns medal,year,sport
@@ -86,8 +73,6 @@ where rn=1
 
 
 --6 find players who won gold medal in summer and winter olympics both.
-select top 1 * from athlete_events;
-select top 1 * from athletes;
 
 select name  
 from athlete_events ae inner join athletes a 
@@ -106,8 +91,7 @@ having count(distinct medal)=3
 
 --8 find players who have won gold medals in consecutive 3 summer olympics in the same event . Consider only olympics 2000 onwards. 
 --Assume summer olympics happens every 4 year starting 2000. print player name and event name.
-
-
+  
 with cte as (
 select name,medal,year,event
 from athlete_events ae inner join athletes a on ae.athlete_id=a.id
@@ -117,7 +101,6 @@ select *, lag(year) over (partition by name,event order by year) prev_year,
 lead(year) over (partition by name,event order by year) nxt_year
 from cte)a 
 where nxt_year=year+4 and prev_year =year-4 ;
---where year=prev_year+4 and year=next_year-4
 
 
 
