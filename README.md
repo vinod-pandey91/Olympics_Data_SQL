@@ -22,6 +22,5 @@ import these datasets in sql server and solve below problems:
 
 --7 find players who won gold, silver and bronze medal in a single olympics. print player name along with year.  
 
---8 find players who have won gold medals in consecutive 3 summer olympics in the same event . Consider only olympics 2000 onwards.     
-    Assume summer olympics happens every 4 year starting 2000. print player name and event name.
+--8 find players who have won gold medals in consecutive 3 summer olympics in the same event. Consider only olympics 2000 onwards.   Assume summer olympics happens every 4 year starting 2000. print player name and event name.
 
