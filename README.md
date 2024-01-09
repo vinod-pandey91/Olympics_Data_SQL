@@ -14,7 +14,7 @@ import these datasets in sql server and solve below problems:
 --3 which player has won maximum gold medals  amongst the players which have won only gold medal (never won silver or bronze) over the years
 
 --4 in each year which player has won maximum gold medal . Write a query to print year,player name and no of golds won in that year .  
- In case of a tie print comma separated player names.
+    In case of a tie print comma separated player names.
 
 --5 in which event and year India has won its first gold medal,first silver medal and first bronze medal print 3 columns medal,year,sport  
 
@@ -23,6 +23,5 @@ import these datasets in sql server and solve below problems:
 --7 find players who won gold, silver and bronze medal in a single olympics. print player name along with year.  
 
 --8 find players who have won gold medals in consecutive 3 summer olympics in the same event . Consider only olympics 2000 onwards.     
-
---Assume summer olympics happens every 4 year starting 2000. print player name and event name.
+    Assume summer olympics happens every 4 year starting 2000. print player name and event name.
 
